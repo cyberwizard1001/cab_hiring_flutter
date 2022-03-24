@@ -1,3 +1,4 @@
+import 'package:cab_hiring_flutter/screens/home_page.dart';
 import 'package:cab_hiring_flutter/utils/colors.dart' as colors;
 import 'package:cab_hiring_flutter/utils/constants.dart';
 import 'package:cab_hiring_flutter/widgets/custom_sliver_widget.dart';
@@ -276,7 +277,13 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                           child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                   primary: colors.accentColor),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const HomePage()));
+                              },
                               child: Text(
                                 'CONTINUE',
                                 style: GoogleFonts.nunito(
