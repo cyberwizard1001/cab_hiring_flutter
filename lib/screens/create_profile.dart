@@ -1,8 +1,9 @@
+import 'package:cab_hiring_flutter/utils/colors.dart' as colors;
+import 'package:cab_hiring_flutter/utils/constants.dart';
 import 'package:cab_hiring_flutter/widgets/custom_sliver_widget.dart';
+import 'package:cab_hiring_flutter/widgets/gender_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:cab_hiring_flutter/utils/colors.dart' as colors;
-import 'package:cab_hiring_flutter/utils/constants.dart' as constants;
 
 class CreateProfilePage extends StatefulWidget {
   const CreateProfilePage({Key? key}) : super(key: key);
@@ -257,17 +258,32 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                                                 BorderRadius.circular(5)),
                                       )),
                                 ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 15.0, bottom: 15.0),
+                                  child: Center(
+                                      child: GenderPickerWidget(
+                                    initialGender: FEMALE,
+                                    title: 'Pick your gender',
+                                    onChanged: (val) {},
+                                    selectedColor: colors.accentColor,
+                                  )),
+                                ),
                               ],
                             ))),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(primary: colors.accentColor),
-                            onPressed: () {},
-                            child: Text(
-                              'CONTINUE',
-                              style: GoogleFonts.nunito(
-                                  color: colors.accentTextColor,
-                              fontWeight: FontWeight.bold),
-                            ))
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  primary: colors.accentColor),
+                              onPressed: () {},
+                              child: Text(
+                                'CONTINUE',
+                                style: GoogleFonts.nunito(
+                                    color: colors.accentTextColor,
+                                    fontWeight: FontWeight.bold),
+                              )),
+                        )
                       ],
                     ),
                   )),
