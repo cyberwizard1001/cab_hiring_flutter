@@ -6,3 +6,7 @@ const textFieldPadding = EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 1
 var alternateIconTextStyle = GoogleFonts.nunito(color: colors.accentTextColor, fontWeight: FontWeight.bold, fontSize: 17);
 var iconTextStyle = GoogleFonts.nunito(color: colors.accentTextColor, fontWeight: FontWeight.bold, fontSize: 17);
 var textNormalStyle = GoogleFonts.nunito(color: colors.primaryTextColor, fontSize: 17);
+
+final String MALE = "Male";
+final String FEMALE = "Female";
+final String OTHER = "Other";
