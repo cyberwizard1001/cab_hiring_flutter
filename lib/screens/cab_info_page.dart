@@ -113,8 +113,31 @@ class _CabInfoPageState extends State<CabInfoPage> {
                       style: GoogleFonts.nunito(
                           color: Color(0xff177171),
                           fontWeight: FontWeight.bold,
-                      fontSize: 20),
+                          fontSize: 20),
                     ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: Text('CANCEL/RESCHEDULE'),
+                      style:
+                          ElevatedButton.styleFrom(primary: Color(0xff177171)),
+                    ),
+                    Text(
+                      'Note, cancellation will incur a 15% fee',
+                      style: GoogleFonts.nunito(
+                          color: Colors.black.withOpacity(0.6)),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: Text('EMERGENCY'),
+                      style:
+                          ElevatedButton.styleFrom(primary: colors.errorColor),
+                    )
                   ],
                 ),
               ),
@@ -125,6 +148,5 @@ class _CabInfoPageState extends State<CabInfoPage> {
     );
   }
 }
-
 
 //115 113 114 6 9 16 88 89
