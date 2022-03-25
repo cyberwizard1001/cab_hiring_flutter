@@ -52,7 +52,7 @@ class LandingPage extends StatelessWidget {
                         child: Text(
                           'Sign In',
                           style: GoogleFonts.nunito(
-                              color: colors.accentColor, fontSize: 25),
+                              color: colors.accentColor, fontSize: 15),
                         )),
                     IconButton(
                         onPressed: () {
@@ -61,7 +61,7 @@ class LandingPage extends StatelessWidget {
                         icon: Icon(
                           FontAwesomeIcons.arrowRight,
                           color: colors.accentColor,
-                          size: 35,
+                          size: 20,
                         ))
                   ],
                 ),
