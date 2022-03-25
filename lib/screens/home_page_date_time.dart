@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:cab_hiring_flutter/screens/cancellation_option_page.dart';
 import 'package:cab_hiring_flutter/utils/colors.dart' as colors;
 import 'package:cab_hiring_flutter/widgets/custom_sliver_widget.dart';
 import 'package:cab_hiring_flutter/widgets/time_box_widget.dart';
@@ -134,7 +135,7 @@ class _HomePageDateTimeState extends State<HomePageDateTime> {
                       padding: const EdgeInsets.only(bottom: 20.0, right: 20.0),
                       child: FloatingActionButton(
                         onPressed: () {
-
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> const CancellationGracePage()));
                         },
                         materialTapTargetSize: MaterialTapTargetSize.padded,
                         backgroundColor: colors.accentColor,
