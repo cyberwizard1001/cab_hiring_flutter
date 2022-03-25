@@ -1,4 +1,5 @@
 import 'package:cab_hiring_flutter/screens/home_page.dart';
+import 'package:cab_hiring_flutter/screens/profile_page.dart';
 import 'package:cab_hiring_flutter/utils/colors.dart' as colors;
 import 'package:cab_hiring_flutter/utils/constants.dart';
 import 'package:cab_hiring_flutter/widgets/custom_sliver_widget.dart';
@@ -272,24 +273,48 @@ class _CreateProfilePageState extends State<CreateProfilePage> {
                                 ),
                               ],
                             ))),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20.0),
-                          child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: colors.accentColor),
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            const HomePage()));
-                              },
-                              child: Text(
-                                'CONTINUE',
-                                style: GoogleFonts.nunito(
-                                    color: colors.accentTextColor,
-                                    fontWeight: FontWeight.bold),
-                              )),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(top: 20.0),
+                              child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      primary: colors.accentColor),
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const HomePage()));
+                                  },
+                                  child: Text(
+                                    'CONTINUE',
+                                    style: GoogleFonts.nunito(
+                                        color: colors.accentTextColor,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 20.0),
+                              child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      primary: colors.accentColor),
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                            const ProfilePage()));
+                                  },
+                                  child: Text(
+                                    'PROFILE',
+                                    style: GoogleFonts.nunito(
+                                        color: colors.accentTextColor,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                            ),
+                          ],
                         )
                       ],
                     ),
