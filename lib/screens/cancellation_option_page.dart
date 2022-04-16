@@ -46,7 +46,7 @@ class _CancellationGracePageState extends State<CancellationGracePage> {
             child: Center(
               child: TimerButton(
                 label: "PROCEED",
-                timeOutInSeconds: 20,
+                timeOutInSeconds: 15,
                 resetTimerOnPressed: false,
                 buttonType: ButtonType.ElevatedButton,
                 onPressed: () {

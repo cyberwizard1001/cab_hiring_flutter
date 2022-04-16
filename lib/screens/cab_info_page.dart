@@ -115,7 +115,7 @@ class _CabInfoPageState extends State<CabInfoPage> {
                           fontWeight: FontWeight.bold,
                           fontSize: 20),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     ElevatedButton(

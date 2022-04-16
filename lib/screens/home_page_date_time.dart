@@ -128,7 +128,7 @@ class _HomePageDateTimeState extends State<HomePageDateTime> {
                     ),
                   ),
                 ),
-                const TimePickerWidget(title: 'This is a widget',),
+                const TimePickerWidget(title: 'Pick Time',),
                 Align(
                     alignment: Alignment.bottomRight,
                     child: Padding(
