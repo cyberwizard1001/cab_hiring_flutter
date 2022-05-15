@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:cab_hiring_flutter/utils/colors.dart' as colors;
+import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:share_plus/share_plus.dart';
 
 /**
  * Form Widget to get current location with validation
@@ -9,13 +10,15 @@ import 'package:google_fonts/google_fonts.dart';
 
 class LocationWidgetField extends FormField<Position> {
   LocationWidgetField(
-      {Key? key, FormFieldSetter<Position>? onSaved,
+      {Key? key,
+      FormFieldSetter<Position>? onSaved,
       FormFieldValidator<Position>? validator,
       Position? defaultValue,
       required BuildContext context,
       required String title,
       AutovalidateMode autoValidateMode = AutovalidateMode.onUserInteraction})
-      : super(key: key,
+      : super(
+            key: key,
             onSaved: onSaved,
             validator: validator ??
                 (data) {
@@ -28,20 +31,23 @@ class LocationWidgetField extends FormField<Position> {
               return Container(
                 decoration: BoxDecoration(color: colors.scaffoldColor),
                 child: Padding(
-                    padding:
-                        const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+                    padding: const EdgeInsets.only(
+                        left: 20, right: 20, top: 10, bottom: 10),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        const Image(image: AssetImage("assets/location.png"),),
+                        const Image(
+                          image: AssetImage("assets/location.png"),
+                        ),
                         Padding(
-                          padding: const EdgeInsets.only(bottom: 30,top: 30),
+                          padding: const EdgeInsets.only(bottom: 30, top: 30),
                           child: Center(
                             child: Text(title,
                                 textAlign: TextAlign.center,
                                 style: GoogleFonts.montserrat(
-                                    fontSize: 25, color: colors.primaryTextColor)),
+                                    fontSize: 25,
+                                    color: colors.primaryTextColor)),
                           ),
                         ),
                         Card(
@@ -61,7 +67,8 @@ class LocationWidgetField extends FormField<Position> {
                                   ? Text(
                                       state.errorText ?? "error",
                                       style: GoogleFonts.poppins(
-                                          color: colors.errorColor, fontSize: 10),
+                                          color: colors.errorColor,
+                                          fontSize: 10),
                                     )
                                   : Text(
                                       state.value != null
@@ -91,14 +98,27 @@ class LocationWidgetField extends FormField<Position> {
                             child: Text(
                               'GET LOCATION',
                               style: GoogleFonts.poppins(
-                                fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.bold,
                                   color: colors.accentTextColor),
                             ),
                             style: ElevatedButton.styleFrom(
                                 primary: colors.accentColor,
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5))),
                           ),
                         ),
+                        ElevatedButton(
+                            onPressed: () {
+                              Share.share("Traveler's current location is: " +
+                                  _determinePosition(context).toString());
+                            },
+                            style: ElevatedButton.styleFrom(primary: colors.accentColor),
+                            child: Text(
+                              'SHARE LOCATION',
+                              style: GoogleFonts.poppins(
+                                color: colors.accentTextColor,
+                                  fontWeight: FontWeight.bold),
+                            ))
                       ],
                     )),
               );
@@ -161,6 +181,7 @@ Future<Position> _determinePosition(context) async {
   var location = await Geolocator.getCurrentPosition(
       desiredAccuracy: LocationAccuracy.best);
 
+  Share.share("Traveler's current location is: " + location.toString());
   Navigator.of(progressContext!, rootNavigator: true).pop();
   return location;
 }

@@ -1,7 +1,7 @@
 import 'package:cab_hiring_flutter/widgets/location_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:cab_hiring_flutter/utils/colors.dart' as colors;
-
+import 'package:share_plus/share_plus.dart';
 
 
 class LocationPage extends StatefulWidget {
