@@ -17,17 +17,17 @@ class _OnboardingScreensState extends State<OnboardingScreens> {
   final controller = PageController(viewportFraction: 1.0, keepPage: true);
 
   var text = [
-    'This is some filler text',
-    'This is some filler text',
-    'This is some filler text',
-    'This is some filler text'
+    'Effortlessly book rides',
+    'Economical, safe travel',
+    'Travel with your friends',
+
   ];
 
   var subText = [
-    'Lorem lorem lorem lorem lorem ipsum ipsum Latin text that’s used as a placeholder',
-    'Lorem lorem lorem lorem lorem ipsum ipsum Latin text that’s used as a placeholder',
-    'Lorem lorem lorem lorem lorem ipsum ipsum Latin text that’s used as a placeholder',
-    'Lorem lorem lorem lorem lorem ipsum ipsum Latin text that’s used as a placeholder',
+    'With Cabriolet, you can effortlessly book rides all from your smartphone with a seamless experience',
+    'With Cabriolet, we offer economical and safe traveling for everyone to fit your wallet',
+    'Experience carpooling at it\'s best as we seamlessly integrate finding people to ride wit. Play your part in making the globe greener',
+
   ];
 
   var image_location = [

@@ -9,7 +9,7 @@ import 'package:cab_hiring_flutter/utils/themes.dart';
 void main() {
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: DriverDetailsPage(),
+    home: LandingPage(),
     //theme: darkTheme.,
   ));
 }
