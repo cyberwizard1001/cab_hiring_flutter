@@ -57,5 +57,6 @@ jobs:
       with:
         artifacts: "build/app/outputs/apk/release/*.apk,build/app/outputs/bundle/release/app-release.aab"
         token: ${{ secrets.GH_TOKEN }}
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
         tag: ${{ steps.version.outputs.content }}
         commit: ${{ github.sha }}
