@@ -1,4 +1,4 @@
-import 'package:cab_hiring_flutter/screens/ride_completion_page.dart';
+import 'package:cab_hiring_flutter/screens/post_ride.dart';
 import 'package:cab_hiring_flutter/widgets/custom_sliver_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:cab_hiring_flutter/utils/colors.dart' as colors;
@@ -118,7 +118,7 @@ class RidePage extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => RideCompletionPage()));
+                            builder: (context) => const PostRidePage()));
                       },
                       child: const Text('CANCEL RIDE'),
                       style: ElevatedButton.styleFrom(

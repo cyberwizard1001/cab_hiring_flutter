@@ -22,6 +22,7 @@ class _SignInPageState extends State<SignInPage> {
 
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   bool _isSigningIn = false;
 
@@ -121,7 +122,7 @@ class _SignInPageState extends State<SignInPage> {
                     Padding(
                       padding: constants.textFieldPadding,
                       child: TextFormField(
-                          controller: _nameController,
+                          controller: _passwordController,
                           style: GoogleFonts.montserrat(
                               color: colors.primaryTextColor),
                           validator: (value) {
@@ -173,7 +174,7 @@ class _SignInPageState extends State<SignInPage> {
                                     context: context),
                                 builder: (context, snapshot) {
                                   if (snapshot.hasError) {
-                                    return Text('Error initializing Firebase');
+                                    return const Text('Error initializing Firebase');
                                   } else if (snapshot.connectionState ==
                                       ConnectionState.done) {
                                     return IconButton(
@@ -217,10 +218,15 @@ class _SignInPageState extends State<SignInPage> {
                                 style: constants.alternateIconTextStyle,
                               ),
                               onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => const CreateProfilePage()));
+                                if((_nameController.text=="Nirmal")&&(_passwordController.text=="password")){
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => const HomePage()));
+                                }
+                                else{
+
+                                }
                               },
                             ),
                           ]

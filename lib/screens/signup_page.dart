@@ -1,4 +1,5 @@
 import 'package:cab_hiring_flutter/screens/home_page.dart';
+import 'package:cab_hiring_flutter/screens/profile_page.dart';
 import 'package:cab_hiring_flutter/screens/sign_in.dart';
 import 'package:cab_hiring_flutter/widgets/custom_sliver_widget.dart';
 import 'package:flutter/material.dart';
@@ -256,7 +257,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => HomePage()));
+                                    builder: (context) => const ProfilePage()));
                           },
                         ),
                         ]
