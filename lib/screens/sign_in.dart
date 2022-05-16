@@ -2,11 +2,14 @@ import 'package:cab_hiring_flutter/screens/create_profile.dart';
 import 'package:cab_hiring_flutter/screens/home_page.dart';
 import 'package:cab_hiring_flutter/screens/signup_page.dart';
 import 'package:cab_hiring_flutter/widgets/custom_sliver_widget.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cab_hiring_flutter/utils/colors.dart' as colors;
 import 'package:cab_hiring_flutter/utils/constants.dart' as constants;
+
+import '../utils/authentication.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -19,8 +22,8 @@ class _SignInPageState extends State<SignInPage> {
 
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
-  final _phoneNumberController = TextEditingController();
-  final _passwordController = TextEditingController();
+  bool _isSigningIn = false;
+
 
   String error = "";
 
@@ -155,7 +158,7 @@ class _SignInPageState extends State<SignInPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => SignUpPage()));
+                                    builder: (context) => const SignUpPage()));
                           },
                         ),
                       ),),
@@ -164,7 +167,50 @@ class _SignInPageState extends State<SignInPage> {
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children:[
-                            IconButton(onPressed: (){}, icon: Icon(FontAwesomeIcons.google, color: colors.accentTextColor,)),
+                            IconButton(onPressed: (){
+                              FutureBuilder(
+                                  future: Authentication.initializeFirebase(
+                                      context: context),
+                                  builder: (context, snapshot) {
+                                    if (snapshot.hasError) {
+                                      return const Text('Error initializing Firebase');
+                                    } else if (snapshot.connectionState ==
+                                        ConnectionState.done) {
+                                      return IconButton(
+                                          onPressed: () async {
+                                            setState(() {
+                                              _isSigningIn = true;
+                                            });
+
+                                            User? user = await Authentication
+                                                .signInWithGoogle(
+                                                context: context);
+
+                                            setState(() {
+                                              _isSigningIn = false;
+                                            });
+
+                                            if (user != null) {
+                                              Navigator.of(context)
+                                                  .pushReplacement(
+                                                MaterialPageRoute(
+                                                  builder: (context) => const HomePage(
+                                                  ),
+                                                ),
+                                              );
+                                            }
+                                          },
+                                          icon: Icon(
+                                            FontAwesomeIcons.google,
+                                            color: colors.accentColor,
+                                          ));
+                                    }
+                                    return CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                          colors.accentColor),
+                                    );
+                                  });
+                            }, icon: Icon(FontAwesomeIcons.google, color: colors.accentTextColor,)),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                   primary: colors.accentColor),
@@ -176,7 +222,7 @@ class _SignInPageState extends State<SignInPage> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => CreateProfilePage()));
+                                        builder: (context) => const CreateProfilePage()));
                               },
                             ),
                           ]
