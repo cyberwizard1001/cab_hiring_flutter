@@ -22,6 +22,7 @@ class _SignInPageState extends State<SignInPage> {
 
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
+
   bool _isSigningIn = false;
 
 
@@ -167,50 +168,47 @@ class _SignInPageState extends State<SignInPage> {
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children:[
-                            IconButton(onPressed: (){
-                              FutureBuilder(
-                                  future: Authentication.initializeFirebase(
-                                      context: context),
-                                  builder: (context, snapshot) {
-                                    if (snapshot.hasError) {
-                                      return const Text('Error initializing Firebase');
-                                    } else if (snapshot.connectionState ==
-                                        ConnectionState.done) {
-                                      return IconButton(
-                                          onPressed: () async {
-                                            setState(() {
-                                              _isSigningIn = true;
-                                            });
+                            FutureBuilder(
+                                future: Authentication.initializeFirebase(
+                                    context: context),
+                                builder: (context, snapshot) {
+                                  if (snapshot.hasError) {
+                                    return Text('Error initializing Firebase');
+                                  } else if (snapshot.connectionState ==
+                                      ConnectionState.done) {
+                                    return IconButton(
+                                        onPressed: () async {
+                                          setState(() {
+                                            _isSigningIn = true;
+                                          });
 
-                                            User? user = await Authentication
-                                                .signInWithGoogle(
-                                                context: context);
+                                          User? user = await Authentication
+                                              .signInWithGoogle(
+                                              context: context);
 
-                                            setState(() {
-                                              _isSigningIn = false;
-                                            });
+                                          setState(() {
+                                            _isSigningIn = false;
+                                          });
 
-                                            if (user != null) {
-                                              Navigator.of(context)
-                                                  .pushReplacement(
-                                                MaterialPageRoute(
-                                                  builder: (context) => const HomePage(
-                                                  ),
-                                                ),
-                                              );
-                                            }
-                                          },
-                                          icon: Icon(
-                                            FontAwesomeIcons.google,
-                                            color: colors.accentColor,
-                                          ));
-                                    }
-                                    return CircularProgressIndicator(
-                                      valueColor: AlwaysStoppedAnimation<Color>(
-                                          colors.accentColor),
-                                    );
-                                  });
-                            }, icon: Icon(FontAwesomeIcons.google, color: colors.accentTextColor,)),
+                                          if (user != null) {
+                                            Navigator.of(context)
+                                                .pushReplacement(
+                                              MaterialPageRoute(
+                                                builder: (context) => const HomePage(),
+                                              ),
+                                            );
+                                          }
+                                        },
+                                        icon: Icon(
+                                          FontAwesomeIcons.google,
+                                          color: colors.accentColor,
+                                        ));
+                                  }
+                                  return CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                        colors.accentColor),
+                                  );
+                                }),
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                   primary: colors.accentColor),

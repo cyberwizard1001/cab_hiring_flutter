@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "617586881905",
+    "project_id": "cabriolet-89d23",
+    "storage_bucket": "cabriolet-89d23.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:617586881905:android:84ccd861edb698d99ef2d0",
+        "android_client_info": {
+          "package_name": "com.example.cab_hiring_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "617586881905-tjtp496g5gtnegnk9fdd6r1h8dcdsn3p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cab_hiring_flutter",
+            "certificate_hash": "d25aacb5e18df36bf5719206d638e4b38d43e50e"
+          }
+        },
+        {
+          "client_id": "617586881905-07h5gouda5ogekui7krrmgsubor0jv9m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIL2-Ut4NfyWMZ5lap1NXLfacQnarXIP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "617586881905-07h5gouda5ogekui7krrmgsubor0jv9m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
