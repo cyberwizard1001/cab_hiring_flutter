@@ -16,7 +16,7 @@ class _DriverDetailsPageState extends State<DriverDetailsPage> {
     return Scaffold(
       backgroundColor: colors.primaryTextColor,
       body: Padding(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: CustomSliverView(
           columnList: [
             Padding(
@@ -34,7 +34,7 @@ class _DriverDetailsPageState extends State<DriverDetailsPage> {
             Card(
               color: const Color(0xffF5F6FA),
               child: Padding(
-                padding: EdgeInsets.all(20.0),
+                padding: const EdgeInsets.all(20.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -50,7 +50,7 @@ class _DriverDetailsPageState extends State<DriverDetailsPage> {
                       backgroundColor: colors.accentColor,
                       minRadius: 40,
                     ),
-                    SizedBox(height: 20,),
+                    const SizedBox(height: 20,),
                     SizedBox(
                       width: 100,
                       child: Card(
@@ -70,7 +70,7 @@ class _DriverDetailsPageState extends State<DriverDetailsPage> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 30, bottom: 30),
+                      padding: const EdgeInsets.only(top: 30, bottom: 30),
                       child: Text(
                         'Vijay Prakash',
                         style: GoogleFonts.nunito(
@@ -82,7 +82,7 @@ class _DriverDetailsPageState extends State<DriverDetailsPage> {
                       style: GoogleFonts.nunito(fontSize: 20),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(bottom: 30, top: 30),
+                      padding: const EdgeInsets.only(bottom: 30, top: 30),
                       child: Center(
                           child: Text(
                         'Vijay is an excellent driver, and has been rated an average of 4.8 stars by over 300 users',

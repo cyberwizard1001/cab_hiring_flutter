@@ -1,13 +1,11 @@
 import 'dart:math';
 
 import 'package:cab_hiring_flutter/screens/emergency_page.dart';
-import 'package:cab_hiring_flutter/screens/home_page.dart';
 import 'package:cab_hiring_flutter/screens/ride_completion_page.dart';
 import 'package:cab_hiring_flutter/screens/ride_page.dart';
 import 'package:cab_hiring_flutter/utils/colors.dart' as colors;
 import 'package:cab_hiring_flutter/widgets/custom_sliver_widget.dart';
 import 'package:cab_hiring_flutter/widgets/fancy_button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -44,7 +42,7 @@ class _CabInfoPageState extends State<CabInfoPage> {
       'TN 21 AS 7276',
       'TN 12 Y 45'
     ];
-    vehicleNumber = list[random.nextInt(4)]; 
+    vehicleNumber = list[random.nextInt(4)];
     return vehicleNumber;
   }
 
@@ -101,7 +99,7 @@ class _CabInfoPageState extends State<CabInfoPage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top:70, left: 20.0, right: 20.0),
+              padding: const EdgeInsets.only(top: 70, left: 20.0, right: 20.0),
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Column(
@@ -140,7 +138,7 @@ class _CabInfoPageState extends State<CabInfoPage> {
                             padding: const EdgeInsets.only(
                                 left: 8.0, right: 8.0, top: 2.0, bottom: 2.0),
                             child: Text(
-                              '${random.nextInt(3)+random.nextInt(4)}.${random.nextInt(9)}',
+                              '${random.nextInt(3) + random.nextInt(4)}.${random.nextInt(9)}',
                               style: GoogleFonts.nunito(
                                   color: colors.primaryTextColor),
                             ),
@@ -167,7 +165,7 @@ class _CabInfoPageState extends State<CabInfoPage> {
                       height: 50,
                     ),
                     Text(
-                      'Arriving in ${random.nextInt(15)+2} minutes',
+                      'Arriving in ${random.nextInt(15) + 2} minutes',
                       style: GoogleFonts.nunito(
                           color: const Color(0xff177171),
                           fontWeight: FontWeight.bold,
@@ -179,7 +177,11 @@ class _CabInfoPageState extends State<CabInfoPage> {
                     ElevatedButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => RidePage(driverName: driverName, carNumber: vehicleNumber, carName: carName,)));
+                            builder: (context) => RidePage(
+                                  driverName: driverName,
+                                  carNumber: vehicleNumber,
+                                  carName: carName,
+                                )));
                       },
                       child: const Text('START RIDE'),
                       style: ElevatedButton.styleFrom(
